@@ -556,7 +556,7 @@
 #endif
 
 #if STM32_ICU_USE_TIM11
-#if defined(STM32_TIM151_IS_USED)
+#if defined(STM32_TIM11_IS_USED)
 #error "ICUD11 requires TIM11 but the timer is already used"
 #else
 #define STM32_TIM11_IS_USED
@@ -795,6 +795,11 @@ typedef struct {
    * @note  Only the DMA-related bits can be specified in this field.
    */
   uint32_t                  dier;
+  /**
+   * @brief TIM ARR register initialization data.
+   * @note  The value of this field should normally be equal to 0xFFFFFFFFU.
+   */
+  uint32_t                  arr;
 } ICUConfig;
 
 /**
